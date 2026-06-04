@@ -1,5 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+const sequelize = require('./config/db');
+const cors = require('cors');
 
 // Connexion BDD
 sequelize.authenticate()
@@ -9,6 +12,15 @@ sequelize.authenticate()
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Synchronisation de la base
+sequelize.sync({ alter: true }) // alter pour dev seulement
+  .then(() => {
+    console.log('Tables synchronisées avec la base');
+  })
+  .catch((err) => {
+    console.error('Erreur de synchronisation :', err);
+  });
 
 
 //Démarrage du serveur
