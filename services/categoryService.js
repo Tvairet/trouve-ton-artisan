@@ -1,4 +1,4 @@
-const { Category } = require("../")  // a completer
+const { Category } = require("../models/categoryModels");
 
 // Récuperer toutes les catehories
 exports.getAllCategories = async () => {

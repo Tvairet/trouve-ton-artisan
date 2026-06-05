@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const specialityController = require('../') // a completer
+const specialityController = require('../controllers/specialityController')
 
 router.get('/', specialityController.getAllSpecialities);
 router.post('/', specialityController.createSpeciality);

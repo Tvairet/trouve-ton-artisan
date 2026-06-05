@@ -1,4 +1,4 @@
-const { Artisan } = require("../") // a completer
+const { Artisan } = require("../models/artisanModels");
 
 //Récuperer tous les artisans
 exports.getAllArtisans = async () => {
