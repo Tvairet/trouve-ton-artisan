@@ -1,4 +1,4 @@
-const artisanService = require('../')  //a completer
+const artisanService = require('../services/artisanService');
 
 exports.getAllArtisans = async (req, res) => {
 

@@ -1,4 +1,4 @@
-const specialityService = require('..');  //A completer
+const specialityService = require('../services/specialityService');
 
 exports.getAllSpecialities = async (req, res) => {
     const specialities = await specialityService.getAllSpecialities();

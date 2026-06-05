@@ -1,4 +1,4 @@
-const { Speciality } = require('..-/')  // a completer
+const { Speciality } = require('../models/specialityModels');
 
 // récuperer toutes les spécialités
 exports.getAllSpecialiies = async () => {
