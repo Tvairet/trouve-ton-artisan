@@ -13,7 +13,7 @@ const Speciality = sequelize.define('Specialities', {
     unique: true,
   },
 }, {
-  tableName: 'specialities', // Facultatif si nom différent du modèle
+  tableName: 'specialities',
 });
 
 module.exports = Speciality;

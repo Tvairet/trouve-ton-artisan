@@ -54,7 +54,7 @@ const Artisan = sequelize.define('Artisans', {
     defaultValue: false,
   }
 }, {
-  tableName: 'artisans', // Facultatif si nom différent du modèle
+  tableName: 'artisans', 
   timestamps: true,   // Crée createdAt et updatedAt automatiquement
 });
 

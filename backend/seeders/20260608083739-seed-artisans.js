@@ -123,6 +123,7 @@ module.exports = {
          city: 'Valence',
          grade: 4.5,
          email: 'v-laderoute@gmail.com',
+         categoryId: 4,
          createdAt: new Date(), updatedAt: new Date() },
       {  name: 'CM Graphisme',
          speciality: 'Webdesign',
