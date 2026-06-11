@@ -1,4 +1,4 @@
-const { Category } = require("../models/categoryModel");
+const { Category } = require("../models/indexModels");
 
 // Récuperer toutes les catehories
 exports.getAllCategories = async () => {
@@ -7,7 +7,7 @@ exports.getAllCategories = async () => {
 
 // Récuperer une catégorie par ID
 exports.getCategoryById = async (id) => {
-    return await Category.findByPK(id);
+    return await Category.findById(id);
 };
 
 // Créer une categorie
@@ -16,22 +16,22 @@ exports.createCategory = async (data) => {
 };
 
 // Mettre a jour une catégorie
-exports.updateCategory = async ( data) => {
-    const category = await Category.findByPK(id);
+exports.updateCategory = async (id, data) => {
+    const category = await Category.findById(id);
     if (!category) return null;
     return await category.update(data);
 };
 
 // Modifier partiellement
-exports.patchCategory = async (data) => {
-    const category = await Category.findByPK(id);
+exports.patchCategory = async (id, data) => {
+    const category = await Category.findById(id);
     if (!category) return null;
     return await category.update(data);
 };
 
 // Supprimer une catégorie
 exports.deleteCategory = async (id) => {
-    const category = await Category.fundByPK(id);
+    const category = await Category.findById(id);
     if (!category) return false;
     await category.destroy();
     return true;
