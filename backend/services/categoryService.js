@@ -7,7 +7,7 @@ exports.getAllCategories = async () => {
 
 // Récuperer une catégorie par ID
 exports.getCategoryById = async (id) => {
-    return await Category.findById(id);
+    return Category.findByPk(id);
 };
 
 // Créer une categorie
@@ -17,21 +17,21 @@ exports.createCategory = async (data) => {
 
 // Mettre a jour une catégorie
 exports.updateCategory = async (id, data) => {
-    const category = await Category.findById(id);
+    const category = await Category.findByPk(id);
     if (!category) return null;
     return await category.update(data);
 };
 
 // Modifier partiellement
 exports.patchCategory = async (id, data) => {
-    const category = await Category.findById(id);
+    const category = await Category.findByPk(id);
     if (!category) return null;
     return await category.update(data);
 };
 
 // Supprimer une catégorie
 exports.deleteCategory = async (id) => {
-    const category = await Category.findById(id);
+    const category = await Category.findByPk(id);
     if (!category) return false;
     await category.destroy();
     return true;

@@ -26,10 +26,10 @@ sequelize.sync({ alter: true }) // alter pour dev seulement
 
 const artisanRoutes = require('./routes/artisanRoutes');
 app.use('/api/artisans', artisanRoutes);
-app.use('/api/', indexRoutes);
+app.use('/', indexRoutes);
 
 //Démarrage du serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log('Server lancé sur http://localhost:${PORT}');
+    console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });

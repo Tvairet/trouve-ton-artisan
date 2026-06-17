@@ -1,7 +1,7 @@
 const { Speciality } = require('../models/indexModels');
 
 // récuperer toutes les spécialités
-exports.getAllSpecialiies = async () => {
+exports.getAllSpecialities = async () => {
     return await Speciality.findAll();
 };
 

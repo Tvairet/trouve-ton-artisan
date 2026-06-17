@@ -11,9 +11,10 @@ exports.getAllArtisans = async (req, res) => {
 };
 
 exports.getArtisanById = async (req, res) => {
-    const artisan = await artisanService.getArtisanByID(req.params.id);
+    
     try {
-        if (!user)
+        const artisan = await artisanService.getArtisanById(req.params.id);
+        if (!artisan)
             return res.status(404).json({ message: " Artisan introuvable" });
         res.json(artisan);
     } catch (error) {
