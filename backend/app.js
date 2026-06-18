@@ -25,8 +25,11 @@ sequelize.sync({ alter: true }) // alter pour dev seulement
   });
 
 const artisanRoutes = require('./routes/artisanRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+
 app.use('/api/artisans', artisanRoutes);
 app.use('/', indexRoutes);
+app.use('/api/category', categoryRoutes);
 
 //Démarrage du serveur
 const PORT = process.env.PORT || 5000;

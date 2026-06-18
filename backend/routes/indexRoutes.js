@@ -4,6 +4,7 @@ const artisanRoutes = require('./artisanRoutes');
 const categoryRoutes = require('./categoryRoutes');
 const specialityRoutes = require('./specialityRoutes');
 const artisanService = require('../services/artisanService');
+const categoryService = require('../services/categoryService');
 
 router.get('/', async (req, res) => {
     try {
@@ -17,7 +18,16 @@ router.get('/artisans', async (req, res) => {
         const artisans = await artisanService.getAllArtisans();
         res.render('artisan', { artisans });
     } catch (err) {
-        res.status(500).send('Erreur serveur test');
+        res.status(500).send('Erreur serveur artisan');
+    }
+});
+
+router.get('/category', async (req, res) => {
+    try {
+        const categories = await categoryService.getAllCategory();
+        res.render('category', {categories});
+    }catch (err) {
+        res.status(500).send('Erreur serveur cat');
     }
 });
 

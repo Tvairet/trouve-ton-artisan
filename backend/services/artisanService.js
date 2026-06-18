@@ -7,7 +7,7 @@ exports.getAllArtisans = async () => {
 
 // Récuperer un artisan par ID
 exports.getArtisanById = async (id) => {
-    return Artisan.findByPk(id);
+    return Artisan.findById(id);
 };
 
 // Créer un artisan

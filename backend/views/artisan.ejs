@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste des artisans</title>
+  <link rel="stylesheet" href="../../frontend/source/index.css">
+</head>
+<body>
+    <header>
+    
+  </header>
+  <h1>Liste des artisans</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Spécialité</th>
+        <th>Note</th>
+        <th>Localisation</th>
+        <th>A propos</th>
+        <th>Email</th>
+        <th>Site web</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% artisans.forEach(artisan => { %>
+        <tr>
+          <td><%= artisan.nom %></td>
+          <td><%= artisan.speciality %></td>
+          <td><%= artisan.grade %></td>
+          
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
