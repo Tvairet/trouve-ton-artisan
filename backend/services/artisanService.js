@@ -21,13 +21,7 @@ exports.updateArtisan = async (id, data) => {
     if (!artisan) return null;
     return await artisan.update(data);
 };
-
-// Modifier partiellement 
-exports.patchArtisan = async(id, data) => {
-    const artisan = await Artisan.findById(id);
-    if (!artisan) return null;
-    return await artisan.update(data);
-};
+git 
 
 // Supprimer un artisan
 exports.deleteArtisan = async (id) => {
