@@ -21,6 +21,7 @@ exports.updateArtisan = async (id, data) => {
     if (!artisan) return null;
     return await artisan.update(data);
 };
+<<<<<<< Updated upstream
 
 // Modifier partiellement 
 exports.patchArtisan = async(id, data) => {
@@ -28,6 +29,8 @@ exports.patchArtisan = async(id, data) => {
     if (!artisan) return null;
     return await artisan.update(data);
 };
+=======
+>>>>>>> Stashed changes
 
 // Supprimer un artisan
 exports.deleteArtisan = async (id) => {
