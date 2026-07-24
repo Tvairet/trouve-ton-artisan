@@ -8,6 +8,7 @@ const artisanService = require('../services/artisanService');
 router.get('/', async (req, res) => {
     try {
         res.render('index');
+   // res.send("test");
     } catch (err) {
         res.status(500).send('Erreur serveur test');
     }

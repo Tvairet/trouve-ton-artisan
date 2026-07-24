@@ -25,7 +25,7 @@ sequelize.sync({ alter: true }) // alter pour dev seulement
   });
 
 const artisanRoutes = require('./routes/artisanRoutes');
-app.use('/api/artisans', artisanRoutes);
+app.use('/artisans', artisanRoutes);
 app.use('/', indexRoutes);
 
 //Démarrage du serveur
