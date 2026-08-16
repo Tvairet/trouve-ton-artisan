@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 
 
 
-function ListeArtisans() {
-  const [artisans, setArtisans] = useState([])
+function ListeArtisansFab() {
+  const [artisans, setArtisans] = useState([]);
+  const categoryID = 3;
 
   useEffect(() => {
     fetch('http://localhost:5000/artisans').then((response)=>{return response.json();}).then((data)=>{
-      setArtisans(data);
+      const categoryFilter = data.filter(artisan => artisan.categoryId === categoryID);
+      setArtisans(categoryFilter);
     });
   },[]);
 
@@ -41,4 +43,4 @@ function ListeArtisans() {
   )
 }
 
-export default ListeArtisans
+export default ListeArtisansFab

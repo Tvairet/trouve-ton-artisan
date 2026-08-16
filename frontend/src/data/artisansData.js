@@ -42,13 +42,12 @@ function normalize(row) {
     name,
     rating,             // entier 0..5 (pour le composant étoiles simple)
     rating_raw: note,   
-    specialty: row.speciality ?? "",
+    speciality: row.speciality ?? "",
     location: row.city ?? "",
     category: mapCategory(row.categoryId),
     slug: slugify(name),
     website: row.website ?? "",
     about: row.about ?? "",
-    image: row.image || `/images/artisans/${slug}.jpg`, // <— fallback
     email: row.email || row.mail || "",                 // <— optionnel
   };
 }

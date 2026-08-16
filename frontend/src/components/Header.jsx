@@ -1,7 +1,7 @@
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import logoUrl from "../assets/logo.png";
-import ListeArtisans from "../pages/ListeArtisans";
+import ListeArtisans from "../pages/ListeArtisansBat";
 import logoSearch from "../assets/recherche.png";
 
 
@@ -22,22 +22,22 @@ return (
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="ListeArtisans">
+          <NavLink end className={navLinkClass} to="ListeArtisansBat">
                 Bâtiment
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="#">
+          <NavLink end className={navLinkClass} to="ListeArtisansServ">
                 Service
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="#">
+          <NavLink end className={navLinkClass} to="ListeArtisansFab">
                 Fabrication
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="#">
+          <NavLink end className={navLinkClass} to="ListeArtisansAlim">
                 Alimentation
           </NavLink>
         </li>
