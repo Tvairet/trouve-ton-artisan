@@ -122,18 +122,6 @@
   }
 }
 
-.explicationListe , .list-group-item , .artisanTop {
-  background-color: #f1f8fc;
-  border-bottom: solid 2px #384050;
-  box-shadow: 0 4px 5px #384050;
-
-  .list-group-item {
-  border: none;
-  }
-  h1 , h2 {
-    color: #00497c;
-  }
-}
 .card {
   display: flex;
   flex-direction: row;
