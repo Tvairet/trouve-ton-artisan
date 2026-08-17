@@ -1,37 +1,19 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-//import { getFeaturedArtisans } from './data/artisansData';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Header from './components/Header'
+import Footer from './components/footer'
 
-function RatingStars({ value }) {
+
+function App() {
   return (
-    <div className="rating" aria-label={`Note ${value} sur 5`}>
-      {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className={`star ${i < value ? "filled" : "empty"}`}>★</span>
-      ))}
-    </div>
-  );
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  )
 }
 
-export default function App() {
-  
-  //const featured = getFeaturedArtisans(3);
-  
-  return (
-    <>
-    <section className='explicationListe'>
-      <h1>Comment trouver mon artisan ?</h1>
-      <ol class="list-group list-group-numbered">
-        <li class="list-group-item">Choisir la catégorie d'artisanat dans le menu</li>
-        <li class="list-group-item">Choisir un artisan</li>
-        <li class="list-group-item">Le contacter via le formulaire de contact</li>
-        <li class="list-group-item">Une réponse sera apportée sous 48H</li>
-      </ol>
-    </section>
-    
-
-     
-    </>
-  );
-}
+export default App
