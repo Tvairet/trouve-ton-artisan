@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const sequelize = require('./config/db');
 const cors = require('cors');
-const indexRoutes = require('./routes/indexRoutes');
+const indexRoutes = require('./routes/index.routes');
 const Artisan = require('./models/artisanModel');
 
 // Connexion BDD
@@ -24,9 +24,14 @@ sequelize.sync({ alter: true }) // alter pour dev seulement
     console.error('Erreur de synchronisation :', err);
   });
 
-const artisanRoutes = require('./routes/artisanRoutes');
-app.use('/artisans', artisanRoutes);
-app.use('/', indexRoutes);
+  // Test route
+  app.get('/', (req, res) => {
+    res.send('API Trouve ton artisan - oK !');
+  });
+
+const artisanRoutes = require('./routes/artisan.routes');
+app.use('/api/artisans', artisanRoutes);
+app.use('/api/', indexRoutes);
 
 //Démarrage du serveur
 const PORT = process.env.PORT || 5000;
