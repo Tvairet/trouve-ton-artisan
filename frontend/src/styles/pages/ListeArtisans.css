@@ -1,0 +1,21 @@
+h1{
+    color: #00497c;
+}
+.card {
+    border: 1px solid #00497c;
+    box-shadow: 0 2px 8px #00497c ;
+    
+}
+.cards-body{
+    border-radius: 10px;    
+}
+.row{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+img {
+  max-height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.375rem; 
+}
