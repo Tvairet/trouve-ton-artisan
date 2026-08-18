@@ -3,7 +3,12 @@
   background: #f1f8fc;
   display: flex;
   height: 110px;
-  position: relative;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 -4px 5px #384050 ;
 
   .footer-link {
     position: absolute;

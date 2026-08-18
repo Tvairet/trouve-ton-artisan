@@ -3,11 +3,29 @@ import { useEffect, useState } from "react";
 import logoUrl from "../assets/logo.png";
 import ListeArtisans from "../pages/ListeArtisansBat";
 import logoSearch from "../assets/recherche.png";
+import artisansData from "../data/artisans.json";
 
 
 const navLinkClass = ({ isActive }) => `nav-link${isActive ? " active" : ""}`;
 
-function Header(){  
+function Header(){ 
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const query = search.trim().toLowerCase();
+    if (!query) return;
+
+    const artisanTrouve = artisansData.find(
+      (artisan) => artisan.name.toLowerCase().includes(query)
+    );
+    if (artisanTrouve) {
+      navigate(`/artisan/${artisanTrouve.id}`);
+    } else {
+      navigate("/Page404");
+    }
+  };
+
 return (
 <nav className="navbar navbar-expand-lg ">
   <div className="container-fluid">
@@ -42,8 +60,8 @@ return (
           </NavLink>
         </li>
       </ul>
-      <form className="d-flex" role="search">
-      <input className="form-control me-2" type="search" placeholder="Rechercher un artisan" aria-label="Search"/>
+      <form className="d-flex" role="search" onSubmit={handleSearch}>
+      <input className="form-control me-2" type="search" placeholder="Rechercher un artisan" aria-label="Search" value={search} onChange={(e) => setSearch(e.target.value)}/>
       <button className="btn btn-outline-black" type="submit">
         <img src={logoSearch} alt="rechercher"/>
       </button>
