@@ -7,7 +7,8 @@ import ListeArtisansBat from './pages/ListeArtisansBat'
 import ListeArtisansAlim from './pages/ListeArtisansAlim'
 import ListeArtisansFab from './pages/ListeArtisansFab'
 import ListeArtisansServ from './pages/ListeArtisansServ'
-
+import './styles/components/header.scss'
+import './styles/components/footer.scss'
 
 function App() {
   return (

@@ -19,3 +19,9 @@ img {
   object-fit: cover;
   border-radius: 0.375rem; 
 }
+#center{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
