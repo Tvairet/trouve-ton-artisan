@@ -10,8 +10,7 @@ exports.getAllArtisans = async (req, res) => {
     }
 };
 
-exports.getArtisanById = async (req, res) => {
-    
+exports.getArtisanById = async (req, res) => {   
     try {
         const artisan = await artisanService.getArtisanById(req.params.id);
         if (!artisan)
@@ -32,6 +31,7 @@ exports.createArtisan = async (req, res) => {
 };
 
 exports.updateArtisan = async (req, res) => {
+    
     try {
         const artisan = await artisanService.patchArtisan(req.params.id, req.body);
         if (!artisan)
@@ -55,6 +55,7 @@ exports.patchArtisan = async(req, res) => {
 
 exports.deleteArtisan = async(req, res) => {
     console.log("ID reçu :", req.params.id);
+    
     try {
         const artisan = await artisanService.deleteArtisan(req.params.id);
         if (!artisan)
