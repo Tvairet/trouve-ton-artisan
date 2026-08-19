@@ -1,0 +1,29 @@
+.explicationListe , .list-group-item , .topArtisans {
+  background-color: #f1f8fc;
+  border-bottom: solid 2px #384050;
+  
+  h1 , h2 {
+    color: #00497c;
+  }
+  .list-group-item{
+    border: none;
+  }
+}
+.topArtisans {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  .card-body{
+    background-color: #0074c7;
+    border-radius: 10px;
+    color: white;
+   .rating , .card-subtitle, .card-text{
+    color: #384050;
+   }
+  }
+}
+.explicationListe, h2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

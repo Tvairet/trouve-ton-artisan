@@ -1,0 +1,26 @@
+nav {
+  background-color: #f1f8fc;
+  border-bottom: solid 2px #384050;
+  box-shadow: 0 4px 5px #384050;
+  height: 100px;
+}
+.img {
+  position: relative;
+  width: 250px;
+  height: 100px;
+}
+.nav-link {
+  background-color: #0074c7;
+  color: #f1f8fc;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: solid 2px #0074c7;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin: 10px;
+  width: 130px;
+}
+
+.nav-link:active {
+  box-shadow: 0 -5px 5px #0074c7;
+}

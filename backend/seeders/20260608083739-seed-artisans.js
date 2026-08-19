@@ -58,7 +58,7 @@ module.exports = {
         website: 'https://boutot-menuiserie.com',
         createdAt: new Date(), updatedAt: new Date() },
       { name: 'Vallis Bellemare',
-        speciality: 'Plonbier',
+        speciality: 'Plombier',
        city: 'Vienne',
         grade: 4,
         email: 'v.bellemare@gmail.com',

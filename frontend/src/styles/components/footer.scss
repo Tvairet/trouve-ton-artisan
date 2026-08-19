@@ -1,0 +1,55 @@
+
+.site-footer {
+  background: #f1f8fc;
+  display: flex;
+  height: 110px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 -4px 5px #384050 ;
+
+  .footer-link {
+    position: absolute;
+    right: 0;
+    p {
+      position: relative;
+      left: 60px;
+    }
+  }
+
+  /* Liens */
+  .nav-link,
+  .link-light {
+    color: #384050;
+    height: 65px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      text-decoration: underline;
+      opacity: 1;
+    }
+  }
+
+  /* Accessibilité focus visible */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #384050;
+    outline-offset: 2px;
+  }
+
+  p, address {
+    color: #384050;
+    width: 350px;
+    font-size: small;
+  }
+  .row {
+    position: absolute;
+    left: 25px;
+  }
+}
