@@ -3,6 +3,8 @@ nav {
   border-bottom: solid 2px #384050;
   box-shadow: 0 4px 5px #384050;
   height: 100px;
+  z-index: 1000;
+  position: relative;
 }
 .img {
   position: relative;
