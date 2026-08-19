@@ -7,6 +7,7 @@ import ListeArtisansBat from './pages/ListeArtisansBat'
 import ListeArtisansAlim from './pages/ListeArtisansAlim'
 import ListeArtisansFab from './pages/ListeArtisansFab'
 import ListeArtisansServ from './pages/ListeArtisansServ'
+import ListeArtisan from './pages/ListeArtisan'
 import './styles/components/header.scss'
 import './styles/components/footer.scss'
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/ListeArtisansAlim' element={<ListeArtisansAlim />} />
         <Route path='/ListeArtisansFab' element={<ListeArtisansFab />} />
         <Route path='/ListeArtisansServ' element={<ListeArtisansServ />} />
+        <Route path='/ListeArtisan' element={<ListeArtisan />} />
         <Route path='*' element={<Page404 />} />
       </Routes>
       <Footer />

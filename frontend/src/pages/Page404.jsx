@@ -29,7 +29,7 @@ export default function Page404() {
                 <Link to="/" className="btn btn-primary">
                   ← Retour à l’accueil
                 </Link>
-                <Link to="/listeArtisans" className="btn btn-outline-secondary">
+                <Link to="/ListeArtisan" className="btn btn-outline-secondary">
                   Voir la liste des artisans
                 </Link>
               </div>
