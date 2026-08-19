@@ -1,16 +1,39 @@
-# React + Vite
+Trouve ton artisan !
+Projet front + API pour répertoire d'artisans avec fiches détaillées.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+🧩 Aperçu
+Front : React + Vite + Bootstrap (pages : Accueil, Liste des artisans, Fiche artisan, Mentions légales, etc.).
+Back : Express + Sequelize.
+Base de données : MySQL/MariaDB (vue v_artisans_cards).
 
-Currently, two official plugins are available:
+✅ Prérequis
+Node.js 
+npm 
+MySQL/MariaDB 
+Git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🗄️ Base de données
 
-## React Compiler
+Générer les migrations pour créer les tables
+npx sequelize-cli migration:generate --name create-artisans
+npx sequelize-cli migration:generate --name create-categories
+npx sequelize-cli migration:generate --name create-specialities
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Appliquer les migrations
+npx sequelize-cli db:migrate
 
-## Expanding the Oxlint configuration
+Générer un composant de seed
+npx sequelize-cli seed:generate --name seed-artisans
+npx sequelize-cli seed:generate --name seed-specialities
+npx sequelize-cli seed:generate --name seed-categories
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Exécuter le seed
+npx sequelize-cli db:seed:all
+
+API
+
+Déployer sur un hébergeur (Alwaysdata). Remplir variables d’env côté hébergeur.
+
+adresse du site
+
+https://trouve-ton-artisan.alwaysdata.net/
