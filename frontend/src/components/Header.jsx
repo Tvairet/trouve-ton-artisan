@@ -32,6 +32,19 @@ return (
     <a className="navbar-brand" href="/">
     <img src={logoUrl} alt="Trouve ton atisan" height="100" width="250"></img>
     </a>
+
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
+
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav mx-lg-auto mb-2 mb-lg-0 text-center">
         <li className="nav-item">
