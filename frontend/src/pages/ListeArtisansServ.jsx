@@ -24,14 +24,12 @@ function ListeArtisansServ() {
   useEffect(() => {
     const fetchArtisans = async () => {
       try {
-        console.log("URL appelée :", `${apiUrl}/api/artisans`);
         const response = await fetch(`${apiUrl}/api/artisans`);
 
         if (!response.ok) {
           throw new Error(`Erreur HTTP : ${response.status}`);
         }
         const data = await response.json();
-        console.log("Données reçues :", data);
         setArtisans(data);
       } catch (err) {
         console.error("Erreur lors de l'appel API :", err);
@@ -58,14 +56,14 @@ function ListeArtisansServ() {
   return (
     <>
       <section id="center">
-        <h1>Nos artisans de l'alimentation</h1>
+        <h1>Nos artisans des services</h1>
         <div className="row">
         {filteredArtisans.map((artisan) => (
       <div className="col-md-4 mb-4" key={artisan.id}>
         <div className="card h-100">
           <div className="card-body">
-            <h5 className="card-title">{artisan.name}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{artisan.speciality}</h6>
+            <h2 className="card-title fs-5">{artisan.name}</h2>
+            <h3 className="card-subtitle mb-2 text-muted fs-6">{artisan.speciality}</h3>
             <p className="card-text">
               <strong>Note :</strong> {artisan.grade} ⭐
               <strong>Localisation :</strong> {artisan.city} <br />
@@ -93,7 +91,7 @@ function ListeArtisansServ() {
     <div className="modal-dialog modal-dialog-centered modal-lg">
       <div className="modal-content">
         <div className="modal-header">
-          <h5 className="modal-title">{selectedArtisan.name}</h5>
+          <h4 className="modal-title">{selectedArtisan.name}</h4>
           <button
             type="button"
             className="btn-close"
@@ -118,7 +116,7 @@ function ListeArtisansServ() {
 
             {/* Colonne droite : formulaire de contact */}
             <div className="col-md-6">
-              <h6>Contacter l'artisan</h6>
+              <h5>Contacter l'artisan</h5>
               <form>
                 <div className="mb-3">
                   <label className="form-label">Nom</label>
