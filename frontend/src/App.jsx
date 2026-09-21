@@ -15,15 +15,17 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ListeArtisansBat" element={<ListeArtisansBat />} />
-        <Route path='/ListeArtisansAlim' element={<ListeArtisansAlim />} />
-        <Route path='/ListeArtisansFab' element={<ListeArtisansFab />} />
-        <Route path='/ListeArtisansServ' element={<ListeArtisansServ />} />
-        <Route path='/ListeArtisan' element={<ListeArtisan />} />
-        <Route path='*' element={<Page404 />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ListeArtisansBat" element={<ListeArtisansBat />} />
+          <Route path='/ListeArtisansAlim' element={<ListeArtisansAlim />} />
+          <Route path='/ListeArtisansFab' element={<ListeArtisansFab />} />
+          <Route path='/ListeArtisansServ' element={<ListeArtisansServ />} />
+          <Route path='/ListeArtisan' element={<ListeArtisan />} />
+          <Route path='*' element={<Page404 />} />
+        </Routes>
+      </main>
       <Footer />
     </BrowserRouter>
   )

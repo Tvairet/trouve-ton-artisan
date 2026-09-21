@@ -78,8 +78,8 @@ function Home() {
               <div key={artisan.id} className="col-12 col-md-4">
                  <div className="card shadow-sm" style={{ minHeight: '330px' }}>
     <div className="card-body d-flex flex-column">
-      <h3 className="card-title h5">{artisan.name}</h3>
-      <h6 className="card-subtitle mb-2">{artisan.speciality}</h6>
+      <h3 className="card-title fs-5">{artisan.name}</h3>
+      <h4 className="card-subtitle mb-2 fs-6">{artisan.speciality}</h4>
       <RatingStars value={Math.round(Number(artisan.grade))} />
       <p className="card-text mt-2">{artisan.city}</p>
       {artisan.about && (
