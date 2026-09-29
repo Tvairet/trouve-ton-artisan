@@ -1,10 +1,46 @@
-
 .site-footer {
   background: #f1f8fc;
   display: flex;
-  height: 110px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  min-height: 110px;
   width: 100%;
-  box-shadow: 0 -4px 5px #384050 ;
+  padding: 0.5rem 25px;
+  box-shadow: 0 -4px 5px #384050;
+
+  /* Bloc adresse (à gauche) : on neutralise le comportement "row/col" de Bootstrap */
+  .row {
+    flex: 0 0 auto;
+    width: 350px;
+    max-width: 100%;
+    margin: 0;
+
+    > div {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  /* Bloc liens légaux (à droite) */
+  .footer-link {
+    flex: 0 1 auto;
+
+    .container {
+      max-width: none;
+      padding: 0;
+    }
+
+    p {
+      width: auto;
+      text-align: center;
+      margin-top: 0.25rem;
+    }
+  }
 
   /* Liens */
   .nav-link,
@@ -35,8 +71,18 @@
     width: 350px;
     font-size: small;
   }
-  .row {
-    position: absolute;
-    left: 25px;
+
+  /* Petits écrans : tout est centré et empilé proprement, sans chevauchement */
+  @media (max-width: 991.98px) {
+    justify-content: center;
+    text-align: center;
+
+    .row {
+      width: 100%;
+    }
+
+    .footer-link {
+      width: 100%;
+    }
   }
 }

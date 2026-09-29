@@ -15,14 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Synchronisation de la base
-sequelize.sync({ alter: true }) // alter pour dev seulement
-  .then(() => {
-    console.log('Tables synchronisées avec la base');
-  })
-  .catch((err) => {
-    console.error('Erreur de synchronisation :', err);
-  });
+app.use('/api/', indexRoutes);
 
   // Test route
   //app.get('/', (req, res) => {

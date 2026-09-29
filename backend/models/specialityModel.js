@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const Speciality = sequelize.define('Specialities', {
+const Speciality = sequelize.define('Speciality', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -11,6 +11,10 @@ const Speciality = sequelize.define('Specialities', {
     type: DataTypes.STRING(50),
     allowNull: false,
     unique: true,
+  },
+  categoryId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
 }, {
   tableName: 'specialities',

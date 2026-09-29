@@ -4,34 +4,22 @@ const Category = require('./categoryModel');
 const Speciality = require('./specialityModel');
 
 // --- Définition des relations ---
-Category.hasOne(Artisan, {
-  foreignKey: 'categoryId',  // clé étrangère dans Category
-  as: 'artisans'         // alias pour les jointures
+Category.hasMany(Speciality, {
+  foreignKey: 'categoryId',
+  as: 'specialities'
 });
-Speciality.hasOne(Artisan, {
-  foreignKey: 'specialityId',  // clé étrangère dans Speciality
-  as: 'artisans'         // alias pour les jointures
+Speciality.belongsTo(Category, {
+  foreignKey: 'categoryId',
+  as: 'category'
 });
 
-Artisan.belongsTo(Category, {
-  foreignKey: 'categoryId',
-  as: 'categories'
+Speciality.hasMany(Artisan, {
+  foreignKey: 'specialityId',
+  as: 'artisans'
 });
 Artisan.belongsTo(Speciality, {
   foreignKey: 'specialityId',
-  as: 'specialities'
+  as: 'speciality'
 });
 
-// --- Synchronisation ---
-const initDb = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Connexion MySQL réussie');
-    await sequelize.sync({ alter: true }); // crée ou met à jour les tables
-    console.log('Tables synchronisées');
-  } catch (err) {
-    console.error('Erreur de synchronisation :', err);
-  }
-};
-
-module.exports = { sequelize, Artisan, Category, Speciality, initDb };
+module.exports = { sequelize, Artisan, Category, Speciality };
