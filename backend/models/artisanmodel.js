@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const Artisan = sequelize.define('Artisans', {
+const Artisan = sequelize.define('Artisan', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -11,12 +11,12 @@ const Artisan = sequelize.define('Artisans', {
     type: DataTypes.STRING(100),
     allowNull: false,
   },
-  speciality: {
-    type: DataTypes.STRING(20),
+  specialityId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   grade: {
-    type: DataTypes.DECIMAL(5,2),
+    type: DataTypes.DECIMAL(2, 1),
     allowNull: true,
   },
   city: {
@@ -44,18 +44,14 @@ const Artisan = sequelize.define('Artisans', {
       },
     },
   },
-  categoryId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
   top: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: false,
   }
 }, {
-  tableName: 'artisans', 
-  timestamps: true,   // Crée createdAt et updatedAt automatiquement
+  tableName: 'artisans',
+  timestamps: true,
 });
 
 module.exports = Artisan;
