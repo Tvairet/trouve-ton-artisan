@@ -3,11 +3,7 @@ import Home from './pages/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Page404 from './pages/Page404'
-import ListeArtisansBat from './pages/ListeArtisansBat'
-import ListeArtisansAlim from './pages/ListeArtisansAlim'
-import ListeArtisansFab from './pages/ListeArtisansFab'
-import ListeArtisansServ from './pages/ListeArtisansServ'
-import ListeArtisan from './pages/ListeArtisan'
+import ListeArtisansCategorie from './pages/ListeArtisansCategorie'
 import './styles/components/header.scss'
 import './styles/components/footer.scss'
 
@@ -18,11 +14,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ListeArtisansBat" element={<ListeArtisansBat />} />
-          <Route path='/ListeArtisansAlim' element={<ListeArtisansAlim />} />
-          <Route path='/ListeArtisansFab' element={<ListeArtisansFab />} />
-          <Route path='/ListeArtisansServ' element={<ListeArtisansServ />} />
-          <Route path='/ListeArtisan' element={<ListeArtisan />} />
+          <Route path="/categorie/:slug" element={<ListeArtisansCategorie />} />
           <Route path='*' element={<Page404 />} />
         </Routes>
       </main>

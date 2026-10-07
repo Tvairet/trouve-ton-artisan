@@ -64,22 +64,22 @@ return (
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="ListeArtisansBat">
+          <NavLink end className={navLinkClass} to="/categorie/batiment">
                 Bâtiment
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="ListeArtisansServ">
+          <NavLink end className={navLinkClass} to="/categorie/services">
                 Service
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="ListeArtisansFab">
+          <NavLink end className={navLinkClass} to="/categorie/fabrication">
                 Fabrication
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink end className={navLinkClass} to="ListeArtisansAlim">
+          <NavLink end className={navLinkClass} to="/categorie/alimentation">
                 Alimentation
           </NavLink>
         </li>
