@@ -1,13 +1,36 @@
 const artisanService = require('../services/artisanService');
 
+
 exports.getAllArtisans = async (req, res) => {
     try {
-        const artisans = await artisanService.getAllArtisans();
+        const rawCategoryId = req.query.categoryId;
+        let categoryId;
+
+        if (rawCategoryId !== undefined) {
+            categoryId = Number(rawCategoryId);
+
+            if (
+                typeof rawCategoryId !== 'string' ||
+                !/^[1-9]\d*$/.test(rawCategoryId) ||
+                !Number.isSafeInteger(categoryId)
+            ) {
+                return res.status(400).json({
+                    message: "categoryId doit être un entier positif."
+                });
+            }
+        }
+
+        const artisans = await artisanService.getAllArtisans(categoryId);
+
         res.json(artisans);
     } catch (error) {
-        res.status(500).json({ message: "Erreur serveur", error: error.message });
+        res.status(500).json({
+            message: "Erreur serveur",
+            error: error.message
+        });
     }
 };
+
 
 exports.getArtisanById = async (req, res) => {
     try {

@@ -1,38 +1,37 @@
 const { Speciality } = require('../models/indexModels');
 
-// récuperer toutes les spécialités
+// Récupérer toutes les spécialités
 exports.getAllSpecialities = async () => {
-    return await Speciality.findAll();
+    return Speciality.findAll();
 };
 
-// Récuperer une spécialité par id
+// Récupérer une spécialité par identifiant
 exports.getSpecialityById = async (id) => {
-    return await Speciality.findById(id);
+    return Speciality.findByPk(id);
 };
 
-// Créer une spécialite
+// Opérations réservées à une future gestion administrateur
 exports.createSpeciality = async (data) => {
-    return await Speciality.create(data);
+    return Speciality.create(data);
 };
 
-// Mettre a jour une spécialite
 exports.updateSpeciality = async (id, data) => {
-    const speciality = await Speciality.findById(id);
+    const speciality = await Speciality.findByPk(id);
+
     if (!speciality) return null;
-    return await speciality.update(data);
+
+    return speciality.update(data);
 };
 
-// Modifier partiellement par id
 exports.patchSpeciality = async (id, data) => {
-    const speciality = await Speciality.findById(id);
-    if (!speciality) return null;
-    return await speciality.update(data);
+    return exports.updateSpeciality(id, data);
 };
 
-// Supprimer une spécialite
 exports.deleteSpeciality = async (id) => {
-    const speciality = await Speciality.findById(id);
+    const speciality = await Speciality.findByPk(id);
+
     if (!speciality) return false;
+
     await speciality.destroy();
     return true;
 };

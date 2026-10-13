@@ -1,28 +1,194 @@
-nav {
-  background-color: #f1f8fc;
-  border-bottom: solid 2px #384050;
-  box-shadow: 0 4px 5px #384050;
-  min-height: 100px;
+header > .navbar {
+  background-color: var(--light-bkg-color, #f1f8fc);
+  border-bottom: none;
+  box-shadow: 0 3px 8px rgba(56, 64, 80, 0.18);
+  position: relative;
   z-index: 1000;
-  position: relative;
-}
-.img {
-  position: relative;
-  width: 250px;
-  height: 100px;
-}
-.nav-link {
-  background-color: #0074c7;
-  color: #f1f8fc;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border: solid 2px #0074c7;
-  border-radius: 10px;
-  transition: all 0.2s ease;
-  margin: 10px;
-  width: 130px;
+  min-height: 88px;
 }
 
-.nav-link:active {
-  box-shadow: 0 -5px 5px #0074c7;
+header > .navbar .container-fluid {
+  column-gap: 0.5rem;
+  row-gap: 0.4rem;
+  padding: 0.5rem 1rem;
+}
+
+header > .navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+header > .navbar .navbar-brand img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Boutons de navigation : uniquement dans le Header. */
+header > .navbar #navbarNav .nav-link {
+  display: block;
+  background-color: var(--main-border-color, #0074c7);
+  border: 2px solid var(--main-border-color, #0074c7);
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+header > .navbar #navbarNav .nav-link:hover,
+header > .navbar #navbarNav .nav-link.active {
+  background-color: var(--main-text-color, #00497c);
+  border-color: var(--main-text-color, #00497c);
+  color: #fff;
+}
+
+/* Cibles tactiles suffisamment grandes pour le mobile. */
+header > .navbar .navbar-toggler,
+header > .navbar button[aria-controls="artisan-search-panel"] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--main-text-color, #00497c);
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+header > .navbar .navbar-toggler:hover,
+header > .navbar button[aria-controls="artisan-search-panel"]:hover {
+  background-color: #e1eef7;
+}
+
+header > .navbar .navbar-toggler:focus-visible,
+header > .navbar button[aria-controls="artisan-search-panel"]:focus-visible,
+header > .navbar #navbarNav .nav-link:focus-visible,
+header > .navbar #artisan-search-panel button:focus-visible,
+header > .navbar #artisan-search-panel input:focus-visible {
+  outline: 3px solid var(--main-border-color, #0074c7);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* Champ unique, déplié via la loupe sur mobile/tablette. */
+header > .navbar #artisan-search-panel form {
+  min-width: 0;
+}
+
+header > .navbar #artisan-search-panel input {
+  min-width: 0;
+  border-color: #aebfc9;
+}
+
+header > .navbar #artisan-search-panel button[type="submit"] {
+  flex-shrink: 0;
+  border-color: var(--main-text-color, #00497c);
+}
+
+header > .navbar #artisan-search-panel button[type="submit"]:hover {
+  background-color: var(--main-text-color, #00497c);
+}
+
+/* Mobile et tablette : menu et recherche occupent chacun leur rangée. */
+@media (max-width: 1199.98px) {
+  header > .navbar #navbarNav,
+  header > .navbar #artisan-search-panel {
+    flex-basis: 100%;
+  }
+
+  /* Corrige le maxWidth: 350px placé dans le JSX. */
+  header > .navbar #artisan-search-panel {
+    max-width: none !important;
+    margin-top: 0.5rem;
+  }
+
+  header > .navbar #navbarNav .navbar-nav {
+    width: 100%;
+    padding: 0.5rem 0;
+    gap: 0.25rem;
+  }
+
+  header > .navbar #navbarNav .nav-link {
+    margin: 0.15rem 0 !important;
+    padding: 0.7rem 1rem !important;
+  }
+}
+
+/* Header compact sur mobile */
+@media (max-width: 575.98px) {
+  header > .navbar {
+    min-height: 64px;
+  }
+
+  header > .navbar .container-fluid {
+    padding: 0.25rem 0.75rem;
+    row-gap: 0.25rem;
+  }
+
+  /* Masquer les marges transparentes du logo */
+  header > .navbar .navbar-brand {
+    max-width: calc(100% - 104px);
+    height: 48px;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
+  header > .navbar .navbar-brand img {
+    flex-shrink: 0;
+  }
+}
+
+/* Tablette : Header compact de 768 à 991 px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  header > .navbar {
+    min-height: 72px;
+    padding-block: 0;
+  }
+
+  header > .navbar .container-fluid {
+    min-height: 72px;
+    padding: 0.25rem 1rem;
+    row-gap: 0.25rem;
+    align-items: center;
+  }
+
+  /* Limiter la hauteur occupée par le logo */
+  header > .navbar .navbar-brand {
+    height: 52px;
+    max-width: calc(100% - 104px);
+    margin-right: auto;
+    overflow: hidden;
+  }
+}
+
+/* Ordinateur : navigation et recherche toujours visibles sur une seule ligne. */
+@media (min-width: 1200px) {
+  header > .navbar .container-fluid {
+    flex-wrap: nowrap !important;
+  }
+
+  header > .navbar #navbarNav {
+    min-width: 0;
+  }
+
+  header > .navbar #artisan-search-panel {
+    width: auto !important;
+    max-width: 320px !important;
+    min-width: 215px;
+    flex: 0 1 320px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header > .navbar #navbarNav .nav-link {
+    transition: none;
+  }
 }

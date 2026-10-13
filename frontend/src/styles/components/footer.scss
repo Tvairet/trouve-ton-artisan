@@ -8,9 +8,9 @@
   min-height: 110px;
   width: 100%;
   padding: 0.5rem 25px;
-  box-shadow: 0 -4px 5px #384050;
+  box-shadow: 0 -3px 6px rgba(56, 64, 80, 0.20);
 
-  /* Bloc adresse (à gauche) : on neutralise le comportement "row/col" de Bootstrap */
+  /* Bloc adresse (à gauche) */
   .row {
     flex: 0 0 auto;
     width: 350px;
@@ -42,20 +42,31 @@
     }
   }
 
-  /* Liens */
-  .nav-link,
-  .link-light {
-    color: #384050;
-    height: 65px;
-    align-items: center;
+  /* Liens légaux. */
+  .footer-link .nav-link.link-light {
+    color: #384050 !important;
+    min-height: 44px;
+    height: auto;
     display: flex;
+    align-items: center;
     justify-content: center;
+    border-radius: 6px;
+    text-decoration: none;
 
     &:hover,
-    &:focus {
-      color: #fff;
+    &:focus-visible {
+      color: #00497c !important;
+      background-color: #e1eef7;
       text-decoration: underline;
-      opacity: 1;
+    }
+  }
+
+  /* Numéro de téléphone lisible sur le fond bleu très clair. */
+  a[href^="tel:"] {
+    color: #00497c;
+
+    &:hover {
+      color: #0074c7;
     }
   }
 
@@ -71,18 +82,57 @@
     width: 350px;
     font-size: small;
   }
+  
+/* Mobile : adresse puis liens */
+@media (max-width: 767.98px) {
+  justify-content: center;
+  text-align: center;
 
-  /* Petits écrans : tout est centré et empilé proprement, sans chevauchement */
-  @media (max-width: 991.98px) {
-    justify-content: center;
-    text-align: center;
+  .row {
+    width: 100%;
+  }
 
-    .row {
-      width: 100%;
-    }
+  .footer-link {
+    width: 100%;
+  }
+}
 
-    .footer-link {
+/* Tablette : adresse à gauche, liens à droite */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+
+  .row {
+    flex: 0 0 32%;
+    width: 32%;
+    max-width: 32%;
+
+    p,
+    address {
       width: 100%;
     }
   }
+
+  .footer-link {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+
+    .nav {
+      justify-content: flex-end !important;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      padding: 0.35rem 0.45rem !important;
+    }
+
+    p {
+      width: 100%;
+      text-align: right !important;
+    }
+  }
+}
 }

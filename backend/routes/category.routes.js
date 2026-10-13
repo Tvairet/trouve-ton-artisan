@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const categoryController = require('../controllers/categoryController')
+const categoryController = require('../controllers/categoryController');
 
+// Consultation publique des catégories
 router.get('/', categoryController.getAllCategories);
-router.post('/', categoryController.createCategory);
 router.get('/:id', categoryController.getCategoryById);
-router.put('/:id', categoryController.updateCategory);
-router.patch('/:id', categoryController.patchCategory);
-router.delete('/:id', categoryController.deleteCategory);
+
+// Les routes POST, PUT, PATCH et DELETE sont désactivées.
+// Elles nécessiteront une authentification
+// et une autorisation administrateur.
 
 module.exports = router;

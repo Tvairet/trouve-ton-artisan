@@ -1,29 +1,159 @@
-.explicationListe , .list-group-item , .topArtisans {
-  background-color: #f1f8fc;
-  border-bottom: solid 2px #384050;
-  
-  h1 , h2 {
-    color: #00497c;
-  }
-  .list-group-item{
-    border: none;
-  }
-}
+.explicationListe,
 .topArtisans {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-  .card-body{
-    background-color: #0074c7;
-    border-radius: 10px;
-    color: white;
-   .rating , .card-subtitle, .card-text{
-    color: #384050;
-   }
-  }
+  background-color: var(--light-bkg-color, #f1f8fc);
 }
-.explicationListe, h2{
+
+/* Bloc « Comment trouver mon artisan ? » */
+.explicationListe {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem 1rem;
+}
+
+.explicationListe h1 {
+  margin: 0;
+  color: var(--main-text-color, #00497c);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.explicationListe .list-group {
+  width: 100%;
+  max-width: 760px;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--main-border-color, #0074c7);
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+.explicationListe .list-group-item {
+  padding: 0.25rem;
+  border: 0;
+  background-color: transparent;
+  color: var(--dark-color, #384050);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* Liste des trois artisans du mois */
+.topArtisans {
+  padding: 0.75rem 1rem 1.25rem;
+}
+
+.topArtisans h2 {
+  color: var(--main-text-color, #00497c);
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.topArtisans .row.g-4 {
+  --bs-gutter-y: 0.75rem;
+}
+
+.topArtisans .card {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin-inline: auto;
+  border: 0;
+  border-radius: 12px;
+  background-color: transparent;
+  min-height: 0 !important;
+}
+
+/* Plus spécifique que la règle globale .card .card-body de App.css. */
+.topArtisans .card .card-body {
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #0074C7;
+  color: #FFFFFF;
+}
+
+.topArtisans .card-title,
+.topArtisans .card-subtitle,
+.topArtisans .card-text,
+.topArtisans .card-text-2,
+.topArtisans .artisan-rating {
+  color: #fff;
+}
+
+.topArtisans .card-title {
+  margin-bottom: 0.25rem;
+  overflow-wrap: anywhere;
+}
+
+.topArtisans .card-subtitle,
+.topArtisans .card-text,
+.topArtisans .card-text-2 {
+  line-height: 1.45;
+}
+
+.topArtisans .card-text-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.topArtisans .btn-primary {
+  background-color: var(--main-text-color, #00497c);
+  border-color: var(--main-text-color, #00497c);
+  color: #fff;
+}
+
+.topArtisans .btn-primary:hover {
+  background-color: var(--dark-color, #384050);
+  border-color: var(--dark-color, #384050);
+}
+
+.topArtisans .btn-primary:focus-visible {
+  outline: 3px solid var(--dark-color, #384050);
+  outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  .explicationListe,
+  .topArtisans {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .explicationListe h1,
+  .topArtisans h2 {
+    font-size: 1.35rem;
+  }
+
+.topArtisans .row.g-4 {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  --bs-gutter-y: 0.75rem;
+}}
+
+
+/* Séparation entre les sections de l'accueil */
+
+.explicationListe {
+  position: relative;
+  z-index: 1;
+  border-bottom: none;
+  box-shadow: 0 4px 5px rgba(56, 64, 80, 0.25);
+}
+
+/* Tablette : cartes plus larges */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .topArtisans .card {
+    max-width: 600px;
+  }
 }

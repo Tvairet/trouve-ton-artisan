@@ -19,6 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/', indexRoutes);
+app.use('/api', (req, res) => {
+    return res.status(404).json({
+        message: 'Route API introuvable'
+    });
+});
+
 
 // Sert les fichiers statiques du build React (dist/)
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));

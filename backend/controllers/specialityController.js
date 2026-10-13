@@ -10,7 +10,7 @@ exports.getAllSpecialities = async (req, res) => {
 };
 
 exports.getSpecialityById = async (req, res) => {
-    const speciality = await specialityService.getspecialityById(req.params.id);
+    const speciality = await specialityService.getSpecialityById(req.params.id);
     try {
         if (!speciality)
             return res.status(404).json({ message: "Spécialité introuvable"});
