@@ -24,6 +24,9 @@
 }
 
 #center .card {
+  width: 100%;
+  max-width: 350px;
+  margin-inline: auto;
   border: 1px solid #00497c;
   box-shadow: 0 2px 8px rgba(0, 73, 124, 0.2);
 }
@@ -37,4 +40,11 @@
   height: auto;
   object-fit: cover;
   border-radius: 0.375rem;
+}
+
+/* Tablettes : cartes centrées et plus larges */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  #center .card {
+    max-width: 450px;
+  }
 }

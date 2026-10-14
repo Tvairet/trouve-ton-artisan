@@ -1,33 +1,48 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Categories', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('categories', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
       },
+
       name: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: false,
-        unique: true
+        unique: true,
       },
+
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
+
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-      }
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+    }, {
+      engine: 'InnoDB',
+      charset: 'utf8mb4',
+      collate: 'utf8mb4_unicode_ci',
     });
+
+    // Même comportement que schema.sql pour updatedAt.
+    await queryInterface.sequelize.query(`
+      ALTER TABLE categories
+      MODIFY COLUMN updatedAt DATETIME NOT NULL
+      DEFAULT CURRENT_TIMESTAMP
+      ON UPDATE CURRENT_TIMESTAMP
+    `);
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Categories');
-  }
+  async down(queryInterface) {
+    await queryInterface.dropTable('categories');
+  },
 };

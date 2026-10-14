@@ -141,7 +141,6 @@
   --bs-gutter-y: 0.75rem;
 }}
 
-
 /* Séparation entre les sections de l'accueil */
 
 .explicationListe {
@@ -151,9 +150,9 @@
   box-shadow: 0 4px 5px rgba(56, 64, 80, 0.25);
 }
 
-/* Tablette : cartes plus larges */
-@media (min-width: 768px) and (max-width: 991.98px) {
+/* Tablettes : cartes centrées et plus larges */
+@media (min-width: 768px) and (max-width: 1199.98px) {
   .topArtisans .card {
-    max-width: 600px;
+    max-width: 450px;
   }
 }

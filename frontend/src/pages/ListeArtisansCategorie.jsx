@@ -79,7 +79,7 @@ function ListeArtisansCategorie() {
         {!loading && !error && (
           <div className="row">
             {artisans.map((artisan) => (
-              <div className="col-md-4 mb-4" key={artisan.id}>
+              <div className="col-12 col-xl-4 mb-4" key={artisan.id}>
                 <div className="card h-100">
                   <div className="card-body d-flex flex-column">
                     <h2 className="card-title fs-5">{artisan.name}</h2>
