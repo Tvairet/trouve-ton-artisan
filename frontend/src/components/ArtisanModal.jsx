@@ -15,9 +15,12 @@ export default function ArtisanModal({ artisan, onClose }) {
   const closeButtonRef = useRef(null);
   const onCloseRef = useRef(onClose);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const handleClose = () => {setForm({ name: '', email: '', message: '' });
+    onClose();
+  };
 
   // La fermeture reste à jour même si le parent recrée sa fonction onClose.
-  onCloseRef.current = onClose;
+  onCloseRef.current = handleClose;
 
   useEffect(() => {
     if (!artisan) return undefined;
@@ -97,7 +100,7 @@ export default function ArtisanModal({ artisan, onClose }) {
       className="modal show d-block"
       style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose();
+        if (event.target === event.currentTarget) handleClose();;
       }}
     >
       <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -116,7 +119,7 @@ export default function ArtisanModal({ artisan, onClose }) {
               type="button"
               className="btn-close"
               aria-label="Fermer la fiche artisan"
-              onClick={onClose}
+              onClick={handleClose}
             />
           </div>
 
@@ -214,7 +217,7 @@ export default function ArtisanModal({ artisan, onClose }) {
           </div>
 
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={onClose}>
+            <button type="button" className="btn btn-secondary" onClick={handleClose}>
               Fermer
             </button>
           </div>

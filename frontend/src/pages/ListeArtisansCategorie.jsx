@@ -96,6 +96,7 @@ function ListeArtisansCategorie() {
                     <button
                       type="button"
                       className="btn btn-primary mt-auto"
+                      aria-label={`Voir le profil de ${artisan.name}`}
                       onClick={() => setSelectedArtisan(artisan)}
                     >
                       Voir les infos
