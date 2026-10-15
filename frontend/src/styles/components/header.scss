@@ -145,8 +145,8 @@ header > .navbar #artisan-search-panel button[type="submit"]:hover {
   }
 }
 
-/* Tablette : Header compact de 768 à 991 px */
-@media (min-width: 768px) and (max-width: 991.98px) {
+/* Tablette : Header compact de 768 à 1199 px */
+@media (min-width: 768px) and (max-width: 1199.98px) {
 
   header > .navbar {
     min-height: 72px;
@@ -185,6 +185,26 @@ header > .navbar #artisan-search-panel button[type="submit"]:hover {
     min-width: 215px;
     flex: 0 1 320px !important;
   }
+  
+  /* Header plus compact sur ordinateur */
+  header > .navbar {
+    min-height: 76px;
+    padding-block: 0;
+  }
+
+  header > .navbar .container-fluid {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  header > .navbar .navbar-brand {
+    padding-block: 0;
+  }
+
+  header > .navbar .navbar-brand img {
+    max-width: 170px;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -70,7 +70,7 @@ function Home() {
         {!loading && !error && (
           <div className="row g-4">
             {topArtisans.map((artisan) => (
-              <div key={artisan.id} className="col-12 col-lg-4">
+              <div key={artisan.id} className="col-12 col-xl-4">
                 <div className="card shadow-sm h-100">
                   <div className="card-body d-flex flex-column">
                     <p className="card-text text-center small mb-2">

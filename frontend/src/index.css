@@ -25,3 +25,42 @@
     padding: 0;
     font-family: "Graphik";
 }
+
+/* Structure générale : footer en bas de page */
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-bkg-color);
+}
+
+#root > header,
+#root > footer {
+  flex-shrink: 0;
+}
+
+#root > main {
+  flex: 1 0 auto;
+}
+
+/* Catégories : défilement central uniquement
+   sur tablette et ordinateur */
+@media (min-width: 768px) {
+  #root:has(> main #center) {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  #root:has(> main #center) > main {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  #root:has(> main #center) #center {
+    min-height: 100%;
+  }
+}
