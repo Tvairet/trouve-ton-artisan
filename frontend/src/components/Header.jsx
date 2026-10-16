@@ -23,6 +23,8 @@ function Header() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [selectedArtisan, setSelectedArtisan] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [categoriesStatus, setCategoriesStatus] = useState('loading');
 
   const collapseRef = useRef(null);
   const searchInputRef = useRef(null);
@@ -45,6 +47,51 @@ function Header() {
     setError('');
     setLoading(false);
   };
+
+  // Récupère les catégories depuis MySQL via l'API.
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/category`, {
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          throw new Error('Impossible de charger les catégories');
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          throw new Error('Réponse inattendue de l’API');
+        }
+
+        // Conserve l'ordre actuel du menu.
+        const order = [2, 4, 3, 1];
+
+        const sortedCategories = order
+          .map((id) =>
+            data.find((category) => Number(category.id) === id)
+          )
+          .filter(Boolean);
+
+        if (!controller.signal.aborted) {
+          setCategories(sortedCategories);
+          setCategoriesStatus('ready');
+        }
+      } catch {
+        if (!controller.signal.aborted) {
+          setCategoriesStatus('error');
+        }
+      }
+    };
+
+    fetchCategories();
+
+    return () => controller.abort();
+  }, [apiUrl]);
 
   // À chaque navigation, on referme la recherche et ses résultats.
   useEffect(() => {
@@ -210,10 +257,39 @@ function Header() {
           >
             <ul className="navbar-nav mx-xl-auto mb-2 mb-xl-0 text-center">
               <li className="nav-item"><NavLink end className={navLinkClass} style={navLinkStyle} to="/" onClick={closeMenu}>Accueil</NavLink></li>
-              <li className="nav-item"><NavLink className={navLinkClass} style={navLinkStyle} to="/categorie/batiment" onClick={closeMenu}>Bâtiment</NavLink></li>
-              <li className="nav-item"><NavLink className={navLinkClass} style={navLinkStyle} to="/categorie/services" onClick={closeMenu}>Services</NavLink></li>
-              <li className="nav-item"><NavLink className={navLinkClass} style={navLinkStyle} to="/categorie/fabrication" onClick={closeMenu}>Fabrication</NavLink></li>
-              <li className="nav-item"><NavLink className={navLinkClass} style={navLinkStyle} to="/categorie/alimentation" onClick={closeMenu}>Alimentation</NavLink></li>
+
+              {categoriesStatus === 'loading' && (
+                <li className="nav-item">
+                  <span className="nav-link" role="status">
+                    Chargement des catégories…
+                  </span>
+                </li>
+              )}
+
+              {categoriesStatus === 'error' && (
+                <li className="nav-item">
+                  <span className="nav-link text-danger" role="alert">
+                    Catégories indisponibles
+                  </span>
+                </li>
+              )}
+
+              {categoriesStatus === 'ready' &&
+                categories.map((category) => (
+                  <li className="nav-item" key={category.id}>
+                    <NavLink
+                      className={navLinkClass}
+                      style={navLinkStyle}
+                      to={`/categorie/${normalizeText(category.name).replace(/\s+/g, '-')}`}
+                      onClick={closeMenu}
+                    >
+                      {category.name === 'Batiment'
+                        ? 'Bâtiment'
+                        : category.name}
+                    </NavLink>
+                  </li>
+                ))}
+
             </ul>
           </div>
 
@@ -236,7 +312,6 @@ function Header() {
                 placeholder="Nom, ville ou métier"
                 aria-label="Rechercher par nom, ville ou métier"
                 aria-controls={loading || error || results !== null ? 'artisan-search-results' : undefined}
-                aria-expanded={loading || Boolean(error) || results !== null}
                 value={search}
                 onChange={handleSearchChange}
               />

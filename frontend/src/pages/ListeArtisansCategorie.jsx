@@ -95,7 +95,7 @@ function ListeArtisansCategorie() {
                     </p>
                     <button
                       type="button"
-                      className="btn btn-primary mt-auto"
+                      className="btn btn-primary mt-auto stretched-link"
                       aria-label={`Voir le profil de ${artisan.name}`}
                       onClick={() => setSelectedArtisan(artisan)}
                     >
@@ -118,7 +118,7 @@ function ListeArtisansCategorie() {
       />
 
       <div className="ticks" />
-      <section id="spacer" />
+      <div id="spacer" aria-hidden="true" />
     </>
   );
 }

@@ -14,8 +14,9 @@ export default function ArtisanModal({ artisan, onClose }) {
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
   const onCloseRef = useRef(onClose);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const handleClose = () => {setForm({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const handleClose = () => {
+    setForm({ name: '', email: '', message: '' });
     onClose();
   };
 
@@ -83,7 +84,7 @@ export default function ArtisanModal({ artisan, onClose }) {
     event.preventDefault();
     if (!hasEmail) return;
 
-    const subject = `Contact via Trouve ton artisan - ${artisan.name}`;
+    const subject = `${form.subject.trim()} - ${artisan.name}`;
     const body = [
       form.message,
       '',
@@ -183,6 +184,19 @@ export default function ArtisanModal({ artisan, onClose }) {
                         maxLength={254}
                         required
                         value={form.email}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor={`${formId}-subject`}>Objet</label>
+                      <input
+                        id={`${formId}-subject`}
+                        className="form-control"
+                        name="subject"
+                        type="text"
+                        maxLength={150}
+                        required
+                        value={form.subject}
                         onChange={handleChange}
                       />
                     </div>

@@ -4,7 +4,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="site-footer text-white " role="contentinfo">
+    <footer className="site-footer text-white ">
         <div className="row ">
           <div className="col-12 col-lg-8 text-center">
             

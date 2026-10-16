@@ -52,7 +52,7 @@ function Home() {
   return (
     <>
       <section className="explicationListe">
-        <h1>Fonctionnement du site</h1>
+        <h1>Comment trouver mon artisan ?</h1>
         <ol className="list-group list-group-numbered">
           <li className="list-group-item">Choisir la catégorie d'artisanat dans le menu</li>
           <li className="list-group-item">Choisir un artisan</li>
@@ -93,7 +93,7 @@ function Home() {
                     </p>
                     <button
                       type="button"
-                      className="btn btn-primary mt-auto"
+                      className="btn btn-primary mt-auto stretched-link"
                       aria-label={`Voir le profil de ${artisan.name}`}
                       onClick={() => setSelectedArtisan(artisan)}
                     >
