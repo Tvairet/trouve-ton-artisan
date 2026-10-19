@@ -16,3 +16,7 @@ dist/
 # Fichiers système
 .DS_Store
 Thumbs.db
+
+# Résultats des tests Playwright
+test-results/
+playwright-report/
