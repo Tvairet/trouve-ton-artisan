@@ -81,11 +81,12 @@ export default function Page404() {
               <p className="lead mb-1">
                 La page que vous avez demandée n’est pas accessible ou n’existe pas.
               </p>
-
-              <p className="text-muted mb-3">
-                Chemin demandé : <code>{pathname}</code>
+              <p className="mb-3" style={{ color: '#384050' }}>
+                Chemin demandé :{' '}
+                <code style={{ color: '#00497C' }}>
+                  {pathname}
+                </code>
               </p>
-
               <Link to="/" className="btn btn-primary">
                 ← Retour à l’accueil
               </Link>

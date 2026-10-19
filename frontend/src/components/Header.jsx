@@ -268,7 +268,7 @@ function Header() {
 
               {categoriesStatus === 'error' && (
                 <li className="nav-item">
-                  <span className="nav-link text-danger" role="alert">
+                  <span className="nav-link text-white fw-semibold" role="alert">
                     Catégories indisponibles
                   </span>
                 </li>
