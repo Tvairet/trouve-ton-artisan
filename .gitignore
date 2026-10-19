@@ -4,10 +4,6 @@ node_modules/
 # Fichiers de production générés
 dist/
 
-# Résultats des tests Playwright
-test-results/
-playwright-report/
-
 # Variables d'environnement
 .env
 .env.*
@@ -15,3 +11,11 @@ playwright-report/
 
 # Fichiers temporaires
 *.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Résultats des tests Playwright
+test-results/
+playwright-report/
