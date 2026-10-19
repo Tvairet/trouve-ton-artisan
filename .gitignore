@@ -1,18 +1,17 @@
-﻿# Dépendances Node.js
+﻿# Dépendances
 node_modules/
 
-# Fichiers de configuration confidentiels
+# Fichiers de production générés
+dist/
+
+# Résultats des tests Playwright
+test-results/
+playwright-report/
+
+# Variables d'environnement
 .env
 .env.*
 !.env.example
-!**/.env.example
 
-# Fichiers générés par Vite
-dist/
-
-# Journaux
+# Fichiers temporaires
 *.log
-
-# Fichiers système
-.DS_Store
-Thumbs.db
